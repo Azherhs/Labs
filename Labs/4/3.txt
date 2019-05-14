@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+class Complex {
+private: double re;
+    double im;
+public:
+    Complex(){};
+    Complex(double re, double im){
+        this->re=re;
+        this->im=im;
+    }
+    double mod(){
+        return sqrt(re*re+im*im);
+    }
+    double arg(){
+        double rez;
+        if (re > 0)  rez = atan(im / re);
+        else if (re == 0) {
+            if (re > 0)  rez = M_PI / 2;
+            else rez = M_PI / 2;
+        }
+        else {
+            if (im >= 0)  rez = M_PI + atan(im / re);
+            else  rez = -M_PI + atan(im / re);
+        }
+        return rez;
+    }
+
+    void show() {
+        cout << " MOD = " << this->mod() << " ARG =" << this->arg() << endl;
+    }
+};
+int main(){
+    Complex a(1.2,3.5);
+    Complex b(5.7,7.9);
+    a.show();
+    b.show();
+    return 0;
+}

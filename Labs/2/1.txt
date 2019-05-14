@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+int sum(int a, int b);
+int raz(int a, int b);
+int main() {
+    int a, b, rez, c;
+    int (*fun)(int, int);
+    cout <<"Vvedite a, b:" << endl;
+    cin >> a >>b;
+    cout << "Vvedite nomer operatsii: (1)summa, (2)raznost"<< endl;
+    cin >> c;
+    if(c==1){
+        fun=sum;
+    } else fun=raz ;
+    cout << "Otvet: ";
+    return fun(a,b);
+}
+
+int sum(int a, int b) {
+    return a + b;
+};
+int raz(int a, int b) {
+    return a - b;
+};

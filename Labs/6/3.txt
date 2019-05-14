@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+class Animal {
+protected:
+    int age;
+    int nogi;
+    string food;
+public:
+    Animal(int age,int nogi,string food) {
+        this->food=food;
+        this->age = age;
+        this->nogi = nogi;
+    }
+};
+class Dog: public Animal {
+private:
+    int zubki;
+public:
+    Dog(int age, int nogi, string food, int zubki): Animal(age,nogi,food){
+        this->zubki=zubki;
+    }
+};
+class Cat: public Animal{
+private:
+    int kogti;
+public:
+    Cat(int age, int nogi, string food, int kogti): Animal(age, nogi, food){
+        this->kogti=kogti;
+    }
+};

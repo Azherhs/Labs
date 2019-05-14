@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Human {
+protected:
+    string name;
+    string surname;
+    int age;
+public:
+    Human(){}
+    Human(string name, string surname, int age){
+        this->name=name;
+        this->surname=surname;
+        this->age=age;
+    }
+    virtual void print()=0;
+    virtual ~Human();
+};
+class Student : public Human{
+private:
+    bool on_lesson;
+public:
+    Student():Human(){
+        on_lesson=true;
+    }
+    Student(string name, string surname, int age, bool on_lesson):Human(name,surname,age){
+        this->on_lesson=on_lesson;
+    }
+    void print() {
+        cout << "Name : " << name << endl << "Surname:  " << surname << endl;
+        cout << "Age:" << age << endl << "On pair?" << (on_lesson) << endl;
+    }
+    ~Student();
+};
+class Boss:public Human{
+private:
+    int number_of_workers;
+protected:
+    Boss():Human(){
+        number_of_workers=0;
+    }
+    Boss(string name, string surname, int age, int number_of_workers):Human(name,surname,age){
+        this->number_of_workers=number_of_workers;
+    }
+    void print(){
+        cout<< "Name:"<<name<< endl<< "Surname"<< surname << endl <<  "Age:" << age << endl;
+        cout << "Rabochih kolvo" << number_of_workers;
+    }
+~Boss();
+};

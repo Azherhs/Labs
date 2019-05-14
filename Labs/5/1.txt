@@ -1,0 +1,62 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+class Complex {
+private: double re;
+    double im;
+public:
+    Complex(){};
+    Complex(double re, double im){
+        this->re=re;
+        this->im=im;
+    }
+    Complex& operator=(Complex& a){
+        this->re=a.re;
+        this->im=a.im;
+    }
+    Complex& operator++() {
+        this->re+=1;
+        this->im++;
+    }
+    Complex& operator--(){
+        this->re--;
+        this->im--;
+    }
+    friend bool operator==(const Complex& a, const Complex& b) {
+        bool real = a.re == b.re;
+        bool image = a.im == b.im;
+        return real && image;
+    }
+    friend ostream& operator<<(ostream &f, const Complex& a) {
+        f  << a.re << " + i * " << a.im << endl;
+        return f;
+    }
+    double mod(){
+        return sqrt(re*re+im*im);
+    }
+    double arg(){
+        double rez;
+        if (re > 0)  rez = atan(im / re);
+        else if (re == 0) {
+            if (re > 0)  rez = M_PI / 2;
+            else rez = M_PI / 2;
+        }
+        else {
+            if (im >= 0)  rez = M_PI + atan(im / re);
+            else  rez = -M_PI + atan(im / re);
+        }
+        return rez;
+    }
+
+    void see() {
+        cout << " MOD = " << this->mod() << " ARG =" << this->arg() << endl;
+    }
+};
+int main(){
+    Complex a(1.2,3.5);
+    Complex b(5.7,7.9);
+    a.see();
+    b.see();
+    return 0;
+}

@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+class Vector {
+private:
+    double x;
+    double y;
+public:
+    void vvod(float a, float b) {  //вводим
+        this->x = a;
+        this->y = b;
+    }
+    float mod() {                 //модуль
+        return sqrt(x * x + y * y);
+    };
+    void sum(Vector a) {
+        x += a.x;
+        y += a.y;
+    };
+    void vichet(Vector a) {
+        x -= a.x;
+        y -= a.y;
+    };
+    void show() {
+        cout << x << " " << y << endl;
+    }
+};
+    int main(){
+        Vector a,b;
+        a.vvod(1,3);
+        b.vvod(5,8);
+        a.sum(b);
+        a.show();
+        a.vichet(b);
+        a.show();
+    }

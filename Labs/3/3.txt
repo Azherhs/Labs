@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+class Complex {
+private: double re;
+    double im;
+public:
+    void vvod_re(double re){
+        this->re;
+    }
+    void vvod_im(double im){
+        this->im;
+    }
+    double mod(){
+        return sqrt(re*re+im*im);
+    }
+    double arg(){
+        double rez;
+        if (re > 0)  rez = atan(im / re);
+        else if (re == 0) {
+            if (re > 0)  rez = M_PI / 2;
+            else rez = M_PI / 2;
+        }
+        else {
+            if (im >= 0)  rez = M_PI + atan(im / re);
+            else  rez = -M_PI + atan(im / re);
+        }
+        return rez;
+    }
+
+    void show() {
+        cout << " MOD = " << this->mod() << " ARG =" << this->arg() << endl;
+    }
+};
+int main(){
+    Complex a,b;
+    a.vvod_re(27);
+    a.vvod_im(13);
+    b.vvod_re(25);
+    b.vvod_im(45);
+    a.show();
+    b.show();
+    return 0;
+}

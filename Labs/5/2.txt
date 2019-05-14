@@ -1,0 +1,51 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+class Vector {
+private:
+    double x;
+    double y;
+public:
+    Vector(){}
+    Vector(double x, double y){
+        this->x=x;
+        this->y=y;
+    }
+    Vector& operator=(Vector& a){
+        this->x=a.x;
+        this->y=a.y;
+        return *this;
+    }
+    friend bool operator==(const Vector a, const Vector& b){
+        bool x1 = a.x == b.x;
+        bool y1 = a.y == b.y;
+        return x1 && y1;
+    }
+    friend istream& operator >> (istream& f, const Vector& k){
+        f>>k.x>>k.y;
+        return f;
+    }
+    float mod() {                 //модуль
+        return sqrt(x * x + y * y);
+    };
+    void sum(Vector a) {
+        x += a.x;
+        y += a.y;
+    };
+    void vichet(Vector a) {
+        x -= a.x;
+        y -= a.y;
+    };
+    void show() {
+        cout << x << " " << y << endl;
+    }
+};
+int main(){
+    Vector a,b;
+    a.vvod(1,3);
+    b.vvod(5,8);
+    a.sum(b);
+    a.show();
+    a.vichet(b);
+    a.show();
+}

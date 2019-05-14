@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Tiles {
+public:
+    string brand;
+    int size_h, size_w, price;
+    Tiles(){}
+    Tiles (string brand,int size_h, int size_w, int price){
+        this->brand=brand;
+        this->price=price;
+        this->size_w=size_w;
+        this->size_h=size_h;
+    }
+    void inf() {
+        cout << "Sdelan iz " <<brand<<" visota ";
+        cout <<size_h<<" sirina "<<size_w<<" stoimost "<<price<< endl;
+    }
+};
+int main(){
+    Tiles a((string)"Granit",25,35,200);
+    Tiles b((string)"Chrom",24,36,220);
+    a.inf();
+    b.inf();
+    return 0;
+}

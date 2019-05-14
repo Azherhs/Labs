@@ -1,0 +1,29 @@
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+int main() {
+    queue <string> avtomoikapomoika;
+    int n=0;
+    cout << "vvedite kolvo chelovekov" << endl;
+    cin>>n;
+    cout << "vvedite imena ludei v ocheredi ot pervogo k poslednemy" << endl;
+    for (int i = 0; i < n; i++) {
+        string s;
+        cin >> s;
+        avtomoikapomoika.push(s);
+    }
+    int minut,zdat;
+    cout << "vvedite vremia moiki mashinki" << endl;
+    cin>>minut;
+    cout << "vvedite vremia ozidau" << endl;
+    cin>>zdat;
+    int itogo=1;
+    itogo=minut*n;
+    for (int i =zdat;i>0;i-=minut){
+        if (zdat-minut>=0)  avtomoikapomoika.pop(); 
+    }
+    if(itogo<zdat) cout << "Pustota";
+    else  cout << "V ocheredi pervy i veliky" << avtomoikapomoika.front() << endl;
+    return 0;
+}

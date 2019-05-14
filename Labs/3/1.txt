@@ -1,0 +1,34 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Child {
+private:
+    string name,surname;
+    int age;
+public:
+    void display_name(string name){
+        this->name = name;
+    }
+    void display_surname(string surname){
+        this->surname=surname;
+    }
+    void display_age(int age){
+        this->age=age;
+    }
+    void display_all(){
+        cout << " Imya " << name<< endl << " Familia " << surname<< endl;
+        cout << " Vozrast " << age << endl;
+    }
+};
+int main()
+{
+    Child a, b;
+    a.display_name("Petya");
+    a.display_surname("Petrov");
+    a.display_age(25);
+    b.display_name("Vasya");
+    b.display_surname("Vasilev");
+    b.display_age(37);
+    a.display_all();
+    b.display_all();
+}

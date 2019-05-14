@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Alive {
+public:
+    string name;
+    string place;
+    string vid;
+    int age;
+
+    Alive() {}
+
+    Alive(string name, string place, string vid, int age) {
+        this->name = name;
+        this->age = age;
+        this->vid = vid;
+        this->place = place;
+    }
+};
+class Animals:public Alive{
+public:
+    string eating;
+    Animals(string name, string place, string vid, int age):Alive(name,place, vid,age){
+        this->eating=eating;
+    }
+};
